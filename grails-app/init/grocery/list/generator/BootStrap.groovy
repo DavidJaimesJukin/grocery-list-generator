@@ -16,10 +16,10 @@ class BootStrap {
         def coffee      = new Ingredient(name:"Coffee", amount: 1,unitOfMeasurement: "16 oz").save()
 
         def eggsAndBacon = new Recipe(name:"Eggs and bacon", ingredients: eggs)
-        //eggsAndBacon.addToIngredients(bacon)
+        eggsAndBacon.addToIngredients(bacon)
         eggsAndBacon.save(failOnError:true)
 
-       /* def coffeeWithMilk = new Recipe(name: "COFFEE WITH A SPLASH OF MILK")
+        def coffeeWithMilk = new Recipe(name: "COFFEE WITH A SPLASH OF MILK")
         coffeeWithMilk.addToIngredients(coffee)
         coffeeWithMilk.addToIngredients(milk)
         coffeeWithMilk.save(failOnError:true)
@@ -29,7 +29,7 @@ class BootStrap {
         lasagna.addToIngredients(tomatoSauce)
         lasagna.addToIngredients(groundBeef)
         lasagna.addToIngredients(mozzarella)
-        lasagna.save(failOnError:true)*/
+        lasagna.save(failOnError:true)
     }
     def destroy = {
     }
