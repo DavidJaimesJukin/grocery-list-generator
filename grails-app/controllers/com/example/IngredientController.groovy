@@ -1,6 +1,5 @@
 package com.example
 
 class IngredientController {
-
-    def index() { }
+    static scaffold = Ingredient
 }
