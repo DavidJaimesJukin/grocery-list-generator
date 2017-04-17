@@ -6,6 +6,18 @@ import com.example.Recipe
 class BootStrap {
 
     def init = { servletContext ->
+        environments {
+            development {
+                if (!Recipe.count()) createSampleData()
+            }
+            test {
+                if (!Recipe.count()) createSampleData()
+            }
+
+        }
+    }
+    private createSampleData(){
+        println("Creating sample data")
         def pasta = new Ingredient(name: "Pasta", amount: 1, unitOfMeasurement: "box").save()
         def tomatoSauce = new Ingredient(name:"Tomato Sauce", amount: 1, unitOfMeasurement: "bottle").save()
         def groundBeef  = new Ingredient(name: "Ground Beef", amount: 1, unitOfMeasurement: "pounds").save()
@@ -34,3 +46,5 @@ class BootStrap {
     def destroy = {
     }
 }
+
+
