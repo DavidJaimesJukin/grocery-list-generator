@@ -8,6 +8,7 @@ class Ingredient {
     static belongsTo = [recipe: Recipe]
     static constraints = {
         name maxSize: 255
+        recipe nullable: true
     }
 
     String toString(){
