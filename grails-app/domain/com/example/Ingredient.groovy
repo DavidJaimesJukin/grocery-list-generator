@@ -5,10 +5,10 @@ class Ingredient {
     String name
     String unitOfMeasurement
     Integer amount
-    static belongsTo = [recipe: Recipe]
+    //static belongsTo = [recipe: Recipe]
     static constraints = {
         name maxSize: 255
-        recipe nullable: true
+    //    recipe nullable: true
     }
 
     String toString(){
