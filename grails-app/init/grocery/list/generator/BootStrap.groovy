@@ -2,6 +2,7 @@ package grocery.list.generator
 
 import com.example.Ingredient
 import com.example.Recipe
+import com.example.User
 
 class BootStrap {
 
@@ -42,6 +43,19 @@ class BootStrap {
         lasagna.addToIngredients(groundBeef)
         lasagna.addToIngredients(mozzarella)
         lasagna.save(failOnError:true)
+
+        def bob = new User(loginId: 'bob_b', password: 'secret')
+        bob.addToRecipes(lasagna)
+        bob.addToRecipes(coffeeWithMilk)
+        bob.addToRecipes(eggsAndBacon)
+        bob.save(failOnError:true)
+
+        def sue = new User(loginId: 'SueSweet', password: 'candy13')
+        sue.save(failOnError:true)
+
+        def greg = new User(loginId: 'CoffeeLover3', password: 'CoffeeCoffeeCoffee')
+        greg.addToRecipes(coffeeWithMilk)
+        greg.save(failOnError:true)
     }
     def destroy = {
     }
