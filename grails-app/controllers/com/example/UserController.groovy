@@ -21,6 +21,15 @@ class UserController {
         respond new User(params)
     }
 
+    def grocerylist(String id){
+        def user = User.findByLoginId(id)
+        if(!user){
+            response.sendError(404)
+        } else {
+            [user: user]
+        }
+    }
+
     @Transactional
     def save(User user) {
         if (user == null) {
