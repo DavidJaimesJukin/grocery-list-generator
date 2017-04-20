@@ -29,7 +29,43 @@ class UserController {
             [user: user]
         }
     }
+    @Transactional
+    def register(){
+        if(request.method == 'POST'){
+            def user = new User(params)
+            user.passwordHashed = u.password.encodeAsPassword()
+            if(!user.save()){
+                return [user: user]
+            }else{
+                session.user = user
+                redirect(controller: 'home')
+            }
+        } else if(session.user){
+            redirect(controller: 'home')
+        }
+    }
 
+    @Transactional
+    def login(){
+        if(request.method == 'POST'){
+            def passwordHashed = params.password.encodeAsPassword()
+            def user = User.findByLoginIdAndPasswordHashed(params.loginId, passwordHashed)
+            if (user){
+                session.user = user
+                redirect(controller: 'home')
+            } else {
+                flash.message ="User not found"
+                redirect(controller: 'home')
+            }
+        }else if(session.user){
+            redirect(controller: 'home')
+        }
+    }
+    @Transactional
+    def logout(){
+        session.invalidate()
+        redirect(controller: 'home')
+    }
     @Transactional
     def save(User user) {
         if (user == null) {

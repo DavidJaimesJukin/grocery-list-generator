@@ -19,14 +19,14 @@ class BootStrap {
     }
     private createSampleData(){
         println("Creating sample data")
-        def pasta = new Ingredient(name: "Pasta", amount: 1, unitOfMeasurement: "box").save()
-        def tomatoSauce = new Ingredient(name:"Tomato Sauce", amount: 1, unitOfMeasurement: "bottle").save()
-        def groundBeef  = new Ingredient(name: "Ground Beef", amount: 1, unitOfMeasurement: "pounds").save()
-        def mozzarella  = new Ingredient(name: "Mozzarella Cheese", amount: 1, unitOfMeasurement: "8oz bag").save()
-        def eggs        = new Ingredient(name: "Eggs", amount: 1, unitOfMeasurement: "dozen").save(failOnError: true)
-        def bacon       = new Ingredient(name: "Bacon", amount: 1, unitOfMeasurement: "8oz bag").save()
-        def milk        = new Ingredient(name:"Milk", amount: 1, unitOfMeasurement: "Gallons").save()
-        def coffee      = new Ingredient(name:"Coffee", amount: 1,unitOfMeasurement: "16 oz").save()
+       /* def pasta            = new Ingredient(name: "Pasta", amount: 1, unitOfMeasurement: "box").save()
+        def tomatoSauce        = new Ingredient(name:"Tomato Sauce", amount: 1, unitOfMeasurement: "bottle").save()
+        def groundBeef         = new Ingredient(name: "Ground Beef", amount: 1, unitOfMeasurement: "pounds").save()
+        def mozzarella         = new Ingredient(name: "Mozzarella Cheese", amount: 6, unitOfMeasurement: "cups").save()
+        def eggs               = new Ingredient(name: "Eggs", amount: 1, unitOfMeasurement: "dozen").save(failOnError: true)
+        def bacon              = new Ingredient(name: "Bacon", amount: 4, unitOfMeasurement: "strips").save()
+        def milk               = new Ingredient(name:"Milk", amount: 0.25, unitOfMeasurement: "cups").save()
+        def coffeegrounds      = new Ingredient(name:"Coffee", amount: 1,unitOfMeasurement: "16 oz").save()
 
         def eggsAndBacon = new Recipe(name:"Eggs and bacon", ingredients: eggs)
         eggsAndBacon.addToIngredients(bacon)
@@ -55,7 +55,7 @@ class BootStrap {
 
         def greg = new User(loginId: 'CoffeeLover3', password: 'CoffeeCoffeeCoffee')
         greg.addToRecipes(coffeeWithMilk)
-        greg.save(failOnError:true)
+        greg.save(failOnError:true)*/
     }
     def destroy = {
     }
